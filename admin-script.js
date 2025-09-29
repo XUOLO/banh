@@ -1,7 +1,354 @@
 // Admin JavaScript
 
-// Sample data for demonstration
-let adminProducts = [...products]; // Import from main script.js
+// Expanded sample data for demonstration
+let adminProducts = [
+    // Chocolate products
+    {
+        id: "1",
+        name: "Bánh Chocolate Truffle",
+        price: 250000,
+        originalPrice: 300000,
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop",
+        category: "chocolate",
+        description: "Bánh chocolate truffle cao cấp với lớp ganache mềm mịn bên trong và lớp chocolate đắng bên ngoài.",
+        ingredients: ["Chocolate đen", "Kem tươi", "Bơ", "Đường", "Vanilla"],
+        weight: "200g",
+        stock: 25,
+        inStock: true,
+        featured: true,
+        rating: 4.8,
+        reviews: 124
+    },
+    {
+        id: "7",
+        name: "Chocolate Đen 70%",
+        price: 85000,
+        image: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&h=400&fit=crop",
+        category: "chocolate",
+        description: "Chocolate đen nguyên chất 70% cacao, vị đắng nhẹ và thơm ngon.",
+        ingredients: ["Cacao", "Đường", "Bơ cacao", "Lecithin đậu nành"],
+        weight: "100g",
+        stock: 40,
+        inStock: true,
+        featured: false,
+        rating: 4.4,
+        reviews: 78
+    },
+    {
+        id: "CHOC001",
+        name: "Chocolate Sữa Belcolade",
+        price: 120000,
+        originalPrice: 150000,
+        image: "https://images.unsplash.com/photo-1511381939415-e44015466834?w=400&h=400&fit=crop",
+        category: "chocolate",
+        description: "Chocolate sữa Belcolade Bỉ cao cấp, vị ngọt dịu và béo ngậy.",
+        ingredients: ["Chocolate sữa", "Sữa bột", "Đường", "Bơ cacao", "Vanilla"],
+        weight: "150g",
+        stock: 30,
+        inStock: true,
+        featured: true,
+        rating: 4.7,
+        reviews: 95
+    },
+    {
+        id: "CHOC002",
+        name: "Chocolate Trắng Valrhona",
+        price: 180000,
+        image: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&h=400&fit=crop",
+        category: "chocolate",
+        description: "Chocolate trắng Valrhona Pháp, vị ngọt tinh tế và thơm béo.",
+        ingredients: ["Bơ cacao", "Sữa bột", "Đường", "Lecithin", "Vanilla"],
+        weight: "120g",
+        stock: 15,
+        inStock: true,
+        featured: false,
+        rating: 4.6,
+        reviews: 67
+    },
+
+    // Candy products
+    {
+        id: "2",
+        name: "Kẹo Gấu Haribo",
+        price: 45000,
+        image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=400&h=400&fit=crop",
+        category: "candy",
+        description: "Kẹo dẻo hình gấu nhiều màu sắc với hương vị trái cây tự nhiên.",
+        ingredients: ["Đường", "Gelatin", "Hương trái cây", "Màu thực phẩm"],
+        weight: "100g",
+        stock: 60,
+        inStock: true,
+        featured: true,
+        rating: 4.5,
+        reviews: 89
+    },
+    {
+        id: "8",
+        name: "Kẹo Caramel Muối",
+        price: 55000,
+        image: "https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=400&h=400&fit=crop",
+        category: "candy",
+        description: "Kẹo caramel mềm với chút muối biển tạo nên hương vị độc đáo.",
+        ingredients: ["Đường", "Kem tươi", "Bơ", "Muối biển", "Vanilla"],
+        weight: "80g",
+        stock: 35,
+        inStock: true,
+        featured: false,
+        rating: 4.2,
+        reviews: 45
+    },
+    {
+        id: "CANDY001",
+        name: "Kẹo Mút Chupa Chups",
+        price: 25000,
+        image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=400&fit=crop",
+        category: "candy",
+        description: "Kẹo mút Chupa Chups với nhiều hương vị: dâu, cam, nho, táo.",
+        ingredients: ["Đường", "Glucose", "Hương liệu tự nhiên", "Màu thực phẩm"],
+        weight: "12g x 10 cái",
+        stock: 80,
+        inStock: true,
+        featured: false,
+        rating: 4.3,
+        reviews: 156
+    },
+    {
+        id: "CANDY002",
+        name: "Kẹo Dẻo Worms",
+        price: 38000,
+        image: "https://images.unsplash.com/photo-1571506165871-ee72a35836d0?w=400&h=400&fit=crop",
+        category: "candy",
+        description: "Kẹo dẻo hình sâu nhiều màu với vị chua ngọt hấp dẫn.",
+        ingredients: ["Đường", "Gelatin", "Acid citric", "Hương trái cây", "Màu thực phẩm"],
+        weight: "150g",
+        stock: 45,
+        inStock: true,
+        featured: false,
+        rating: 4.1,
+        reviews: 73
+    },
+    {
+        id: "CANDY003",
+        name: "Kẹo Bông Gòn Cotton Candy",
+        price: 30000,
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop",
+        category: "candy",
+        description: "Kẹo bông gòn mềm mịn, tan trong miệng với hương vị ngọt dịu.",
+        ingredients: ["Đường", "Hương liệu", "Màu thực phẩm"],
+        weight: "50g",
+        stock: 0,
+        inStock: false,
+        featured: false,
+        rating: 4.4,
+        reviews: 92
+    },
+
+    // Cake products
+    {
+        id: "3",
+        name: "Bánh Cupcake Vanilla",
+        price: 35000,
+        image: "https://images.unsplash.com/photo-1587668178277-295251f900ce?w=400&h=400&fit=crop",
+        category: "cake",
+        description: "Bánh cupcake vanilla mềm mịn với lớp kem bơ ngọt ngào và trang trí đẹp mắt.",
+        ingredients: ["Bột mì", "Trứng", "Đường", "Bơ", "Vanilla", "Kem tươi"],
+        weight: "80g",
+        stock: 20,
+        inStock: true,
+        featured: false,
+        rating: 4.6,
+        reviews: 67
+    },
+    {
+        id: "6",
+        name: "Bánh Macaron Pháp",
+        price: 180000,
+        originalPrice: 220000,
+        image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&h=400&fit=crop",
+        category: "cake",
+        description: "Bánh macaron Pháp truyền thống với nhiều hương vị: vanilla, chocolate, dâu, matcha.",
+        ingredients: ["Bột hạnh nhân", "Đường bột", "Lòng trắng trứng", "Kem ganache"],
+        weight: "100g (6 chiếc)",
+        stock: 12,
+        inStock: true,
+        featured: true,
+        rating: 4.9,
+        reviews: 203
+    },
+    {
+        id: "CAKE001",
+        name: "Bánh Tiramisu Mini",
+        price: 65000,
+        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=400&fit=crop",
+        category: "cake",
+        description: "Bánh tiramisu mini với lớp mascarpone mềm mịn và cà phê espresso thơm đậm.",
+        ingredients: ["Mascarpone", "Cà phê espresso", "Bánh ladyfinger", "Đường", "Trứng"],
+        weight: "120g",
+        stock: 18,
+        inStock: true,
+        featured: true,
+        rating: 4.8,
+        reviews: 134
+    },
+    {
+        id: "CAKE002",
+        name: "Bánh Cheesecake Dâu",
+        price: 85000,
+        originalPrice: 100000,
+        image: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=400&fit=crop",
+        category: "cake",
+        description: "Bánh cheesecake mềm mịn với lớp dâu tây tươi ngon và đế bánh quy giòn.",
+        ingredients: ["Cream cheese", "Dâu tây", "Đường", "Trứng", "Bánh quy graham"],
+        weight: "150g",
+        stock: 25,
+        inStock: true,
+        featured: false,
+        rating: 4.7,
+        reviews: 98
+    },
+    {
+        id: "CAKE003",
+        name: "Bánh Muffin Blueberry",
+        price: 40000,
+        image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=400&fit=crop",
+        category: "cake",
+        description: "Bánh muffin với quả việt quất tươi, mềm xốp và thơm ngon.",
+        ingredients: ["Bột mì", "Quả việt quất", "Trứng", "Sữa", "Bơ", "Đường"],
+        weight: "90g",
+        stock: 30,
+        inStock: true,
+        featured: false,
+        rating: 4.5,
+        reviews: 76
+    },
+
+    // Cookie products
+    {
+        id: "4",
+        name: "Bánh Quy Chocolate Chip",
+        price: 65000,
+        image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&h=400&fit=crop",
+        category: "cookie",
+        description: "Bánh quy giòn rụm với những mảnh chocolate chip thơm ngon.",
+        ingredients: ["Bột mì", "Bơ", "Đường nâu", "Chocolate chip", "Trứng"],
+        weight: "150g",
+        stock: 40,
+        inStock: true,
+        featured: true,
+        rating: 4.7,
+        reviews: 156
+    },
+    {
+        id: "COOKIE001",
+        name: "Bánh Quy Bơ Đan Mạch",
+        price: 75000,
+        originalPrice: 90000,
+        image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&h=400&fit=crop",
+        category: "cookie",
+        description: "Bánh quy bơ Đan Mạch truyền thống, giòn tan và thơm béo.",
+        ingredients: ["Bột mì", "Bơ", "Đường", "Trứng", "Vanilla", "Muối"],
+        weight: "200g",
+        stock: 35,
+        inStock: true,
+        featured: false,
+        rating: 4.6,
+        reviews: 89
+    },
+    {
+        id: "COOKIE002",
+        name: "Bánh Quy Yến Mạch",
+        price: 55000,
+        image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=400&h=400&fit=crop",
+        category: "cookie",
+        description: "Bánh quy yến mạch bổ dưỡng với nho khô và hạt óc chó.",
+        ingredients: ["Yến mạch", "Bột mì", "Nho khô", "Hạt óc chó", "Bơ", "Đường nâu"],
+        weight: "180g",
+        stock: 28,
+        inStock: true,
+        featured: false,
+        rating: 4.4,
+        reviews: 65
+    },
+    {
+        id: "COOKIE003",
+        name: "Bánh Quy Gừng",
+        price: 50000,
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop",
+        category: "cookie",
+        description: "Bánh quy gừng thơm cay, giòn rụm với hương vị truyền thống.",
+        ingredients: ["Bột mì", "Gừng", "Quế", "Đinh hương", "Bơ", "Đường nâu"],
+        weight: "160g",
+        stock: 22,
+        inStock: true,
+        featured: false,
+        rating: 4.3,
+        reviews: 54
+    },
+
+    // Gummy products
+    {
+        id: "5",
+        name: "Kẹo Dẻo Trái Cây",
+        price: 38000,
+        image: "https://images.unsplash.com/photo-1571506165871-ee72a35836d0?w=400&h=400&fit=crop",
+        category: "gummy",
+        description: "Kẹo dẻo hình trái cây với nhiều hương vị: dâu, cam, nho, táo.",
+        ingredients: ["Đường", "Gelatin", "Hương trái cây tự nhiên", "Acid citric"],
+        weight: "120g",
+        stock: 50,
+        inStock: true,
+        featured: false,
+        rating: 4.3,
+        reviews: 92
+    },
+    {
+        id: "GUMMY001",
+        name: "Kẹo Dẻo Cola",
+        price: 42000,
+        image: "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=400&h=400&fit=crop",
+        category: "gummy",
+        description: "Kẹo dẻo hình chai cola với vị chua ngọt đặc trưng.",
+        ingredients: ["Đường", "Gelatin", "Hương cola", "Acid citric", "Màu caramel"],
+        weight: "100g",
+        stock: 38,
+        inStock: true,
+        featured: false,
+        rating: 4.2,
+        reviews: 78
+    },
+    {
+        id: "GUMMY002",
+        name: "Kẹo Dẻo Shark",
+        price: 45000,
+        image: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=400&h=400&fit=crop",
+        category: "gummy",
+        description: "Kẹo dẻo hình cá mập với nhiều màu sắc và hương vị biển.",
+        ingredients: ["Đường", "Gelatin", "Hương biển", "Màu xanh", "Acid citric"],
+        weight: "130g",
+        stock: 0,
+        inStock: false,
+        featured: false,
+        rating: 4.1,
+        reviews: 63
+    },
+    {
+        id: "GUMMY003",
+        name: "Kẹo Dẻo Rainbow",
+        price: 48000,
+        originalPrice: 55000,
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop",
+        category: "gummy",
+        description: "Kẹo dẻo cầu vồng 7 màu với 7 hương vị trái cây khác nhau.",
+        ingredients: ["Đường", "Gelatin", "Hương trái cây", "Màu thực phẩm tự nhiên"],
+        weight: "140g",
+        stock: 32,
+        inStock: true,
+        featured: true,
+        rating: 4.6,
+        reviews: 145
+    }
+];
+
 let adminOrders = [
     {
         id: "ORD001",
@@ -42,6 +389,77 @@ let adminOrders = [
             { productId: "4", quantity: 1, price: 65000 }
         ],
         address: "789 Đường DEF, Quận 3, TP.HCM"
+    },
+    {
+        id: "ORD004",
+        customer: "Phạm Thị D",
+        email: "phamthid@email.com",
+        phone: "0923456789",
+        date: "2024-01-18",
+        total: 320000,
+        status: "shipping",
+        items: [
+            { productId: "CHOC001", quantity: 2, price: 120000 },
+            { productId: "CAKE001", quantity: 1, price: 65000 },
+            { productId: "CANDY001", quantity: 2, price: 25000 }
+        ],
+        address: "321 Đường GHI, Quận 4, TP.HCM"
+    },
+    {
+        id: "ORD005",
+        customer: "Hoàng Văn E",
+        email: "hoangvane@email.com",
+        phone: "0934567890",
+        date: "2024-01-19",
+        total: 275000,
+        status: "completed",
+        items: [
+            { productId: "CAKE002", quantity: 2, price: 85000 },
+            { productId: "COOKIE001", quantity: 1, price: 75000 },
+            { productId: "GUMMY003", quantity: 1, price: 48000 }
+        ],
+        address: "654 Đường JKL, Quận 5, TP.HCM"
+    },
+    {
+        id: "ORD006",
+        customer: "Võ Thị F",
+        email: "vothif@email.com",
+        phone: "0945678901",
+        date: "2024-01-20",
+        total: 155000,
+        status: "cancelled",
+        items: [
+            { productId: "CHOC002", quantity: 1, price: 180000 }
+        ],
+        address: "987 Đường MNO, Quận 6, TP.HCM"
+    },
+    {
+        id: "ORD007",
+        customer: "Đặng Văn G",
+        email: "dangvang@email.com",
+        phone: "0956789012",
+        date: "2024-01-21",
+        total: 190000,
+        status: "processing",
+        items: [
+            { productId: "CAKE003", quantity: 2, price: 40000 },
+            { productId: "COOKIE002", quantity: 1, price: 55000 },
+            { productId: "COOKIE003", quantity: 1, price: 50000 }
+        ],
+        address: "147 Đường PQR, Quận 7, TP.HCM"
+    },
+    {
+        id: "ORD008",
+        customer: "Bùi Thị H",
+        email: "buithih@email.com",
+        phone: "0967890123",
+        date: "2024-01-22",
+        total: 126000,
+        status: "pending",
+        items: [
+            { productId: "GUMMY001", quantity: 3, price: 42000 }
+        ],
+        address: "258 Đường STU, Quận 8, TP.HCM"
     }
 ];
 
@@ -54,7 +472,7 @@ let adminCustomers = [
         orders: 5,
         totalSpent: 1250000,
         joinDate: "2023-12-01",
-        status: "active"
+        status: "vip"
     },
     {
         id: "CUST002",
@@ -75,6 +493,76 @@ let adminCustomers = [
         totalSpent: 65000,
         joinDate: "2024-01-15",
         status: "new"
+    },
+    {
+        id: "CUST004",
+        name: "Phạm Thị D",
+        email: "phamthid@email.com",
+        phone: "0923456789",
+        orders: 4,
+        totalSpent: 890000,
+        joinDate: "2023-11-20",
+        status: "active"
+    },
+    {
+        id: "CUST005",
+        name: "Hoàng Văn E",
+        email: "hoangvane@email.com",
+        phone: "0934567890",
+        orders: 6,
+        totalSpent: 1450000,
+        joinDate: "2023-10-15",
+        status: "vip"
+    },
+    {
+        id: "CUST006",
+        name: "Võ Thị F",
+        email: "vothif@email.com",
+        phone: "0945678901",
+        orders: 2,
+        totalSpent: 320000,
+        joinDate: "2024-01-10",
+        status: "active"
+    },
+    {
+        id: "CUST007",
+        name: "Đặng Văn G",
+        email: "dangvang@email.com",
+        phone: "0956789012",
+        orders: 3,
+        totalSpent: 560000,
+        joinDate: "2023-12-25",
+        status: "active"
+    },
+    {
+        id: "CUST008",
+        name: "Bùi Thị H",
+        email: "buithih@email.com",
+        phone: "0967890123",
+        orders: 1,
+        totalSpent: 126000,
+        joinDate: "2024-01-20",
+        status: "new"
+    },
+    {
+        id: "CUST009",
+        name: "Lý Văn I",
+        email: "lyvani@email.com",
+        phone: "0978901234",
+        orders: 8,
+        totalSpent: 2100000,
+        joinDate: "2023-09-10",
+        status: "vip"
+    },
+    {
+        id: "CUST010",
+        name: "Trương Thị K",
+        email: "truongthik@email.com",
+        phone: "0989012345",
+        orders: 2,
+        totalSpent: 280000,
+        joinDate: "2024-01-08",
+        status: "active"
     }
 ];
 
@@ -165,26 +653,38 @@ function loadRecentActivity() {
         {
             type: 'order',
             icon: '📦',
-            text: 'Đơn hàng mới #ORD003 từ Lê Văn C',
+            text: 'Đơn hàng mới #ORD008 từ Bùi Thị H',
             time: '5 phút trước'
         },
         {
             type: 'customer',
             icon: '👤',
-            text: 'Khách hàng mới Trần Thị B đã đăng ký',
+            text: 'Khách hàng mới Trương Thị K đã đăng ký',
             time: '15 phút trước'
         },
         {
             type: 'product',
             icon: '🛍️',
-            text: 'Sản phẩm "Bánh Chocolate Truffle" sắp hết hàng',
-            time: '1 giờ trước'
+            text: 'Sản phẩm "Kẹo Bông Gòn Cotton Candy" đã hết hàng',
+            time: '30 phút trước'
         },
         {
             type: 'order',
             icon: '✅',
-            text: 'Đơn hàng #ORD001 đã hoàn thành',
+            text: 'Đơn hàng #ORD005 đã hoàn thành',
+            time: '1 giờ trước'
+        },
+        {
+            type: 'product',
+            icon: '🍫',
+            text: 'Sản phẩm "Chocolate Trắng Valrhona" sắp hết hàng',
             time: '2 giờ trước'
+        },
+        {
+            type: 'order',
+            icon: '🚚',
+            text: 'Đơn hàng #ORD004 đang được giao',
+            time: '3 giờ trước'
         }
     ];
     
@@ -544,7 +1044,10 @@ function loadAdminCustomers() {
     filteredCustomers.forEach(customer => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td><strong>${customer.name}</strong></td>
+            <td>
+                <strong>${customer.name}</strong>
+                ${customer.status === 'vip' ? '<span class="status-badge completed" style="margin-left: 8px;">VIP</span>' : ''}
+            </td>
             <td>${customer.email}</td>
             <td>${customer.phone}</td>
             <td>${customer.orders}</td>
